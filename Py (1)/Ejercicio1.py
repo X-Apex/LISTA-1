@@ -1,0 +1,10 @@
+# Mostrar tabla del 3 
+print("=== TABLA DEL 3 ===") 
+for i in range(1, 13): 
+    resultado = 3 * i 
+    print(f"3 x {i} = {resultado}") 
+print("\n=== TABLA DEL 9 ===")
+# Mostrar tabla del 9 
+for i in range(1, 13): 
+    resultado = 9 * i 
+    print(f"9 x {i} = {resultado}") 
