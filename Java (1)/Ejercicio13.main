@@ -1,0 +1,13 @@
+public class SumaProductoPares { 
+    public static void main(String[] args) { 
+        long suma = 0; 
+        // Se usa BigInteger porque el resultado es un número enorme 
+        java.math.BigInteger producto = java.math.BigInteger.ONE; 
+        for (int i = 20; i <= 400; i += 2) { 
+            suma += i; 
+            producto = producto.multiply(java.math.BigInteger.valueOf(i)); 
+        } 
+        System.out.println("La suma de los números pares entre 20 y 400 es: " + suma); 
+        System.out.println("El producto de los números pares entre 20 y 400 es: " + producto); 
+    } 
+} 

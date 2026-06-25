@@ -1,0 +1,20 @@
+import java.util.Scanner; 
+public class AñosBisiestos { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        int contadorAños = 0; 
+        int contadorBisiestos = 0; 
+        while (contadorAños < 10 && contadorBisiestos < 3) { 
+            System.out.print("Ingrese un año: "); 
+            int año = sc.nextInt(); 
+            contadorAños++; 
+            if ((año % 4 == 0 && año % 100 != 0) || (año % 400 == 0)) { 
+                System.out.println(año + " es bisiesto"); 
+                contadorBisiestos++; 
+            } else { 
+                System.out.println(año + " no es bisiesto"); 
+            } 
+        } 
+        sc.close(); 
+    } 
+} 

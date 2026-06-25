@@ -1,0 +1,48 @@
+import java.util.Scanner; 
+public class ProcesarPresos { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        final int NumJefaturas = 3; 
+        for (int j = 1; j <= NumJefaturas; j++) { 
+            System.out.print("Ingrese el número de presos en la jefatura " + j + ": "); 
+            int n = sc.nextInt(); 
+            int totalA = 0, totalB = 0, totalC = 0; 
+            System.out.println("\n--- Jefatura " + j + " ---"); 
+            for (int i = 1; i <= n; i++) { 
+                System.out.print("Número de pistas del preso " + i + ": "); 
+                int m = sc.nextInt(); 
+                int puntaje = 0; 
+                for (int k = 1; k <= m; k++) { 
+                    System.out.print("Tipo de pista (A/B/C): "); 
+                    char tipo = sc.next().toUpperCase().charAt(0); 
+                    switch (tipo) { 
+                        case 'A': puntaje += 20; totalA++; break; 
+                        case 'B': puntaje += 15; totalB++; break; 
+                        case 'C': puntaje += 30; totalC++; break; 
+                        default: System.out.println("Tipo inválido."); k--; break; 
+                    } 
+                } 
+                // Clasificación del preso 
+                String estatus; 
+                if (puntaje > 85) estatus = "Culpable"; 
+                else if (puntaje > 65) estatus = "Sospechoso de alto riesgo"; 
+                else estatus = "Sospechoso de bajo riesgo"; 
+                System.out.println("Preso " + i + " → Puntaje: " + puntaje + " → " + estatus); 
+            } 
+            // Estadísticas de la jefatura 
+            int totalPistas = totalA + totalB + totalC; 
+            String masFrecuente; 
+            if (totalA >= totalB && totalA >= totalC) masFrecuente = "A"; 
+            else if (totalB >= totalA && totalB >= totalC) masFrecuente = "B"; 
+            else masFrecuente = "C"; 
+            System.out.println("\nResumen Jefatura " + j + ":"); 
+            System.out.println("Total presos: " + n); 
+            System.out.println("Pista más frecuente: " + masFrecuente); 
+            System.out.printf("Porcentaje A: %.2f%%\n", (totalA * 100.0 / totalPistas)); 
+            System.out.printf("Porcentaje B: %.2f%%\n", (totalB * 100.0 / totalPistas)); 
+            System.out.printf("Porcentaje C: %.2f%%\n", (totalC * 100.0 / totalPistas)); 
+            System.out.println("-----------------------------\n"); 
+        } 
+        sc.close(); 
+    } 
+} 

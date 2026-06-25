@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+public class SalariosEmpleados { 
+    public static void main(String[] args) { 
+        final int NumEmpleados = 50;   // número de empleados 
+        final double FactorExtra = 1.5; // pago de horas extra 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada: pago por hora ordinaria 
+        System.out.print("Ingrese el pago por hora ordinaria: "); 
+        double ptas_hora = sc.nextDouble(); 
+        // Procesar cada empleado 
+        for (int contador = 1; contador <= NumEmpleados; contador++) { 
+            System.out.print("Ingrese las horas trabajadas por el empleado " + contador + ": "); 
+            double horas_trabajadas = sc.nextDouble(); 
+            double salario; 
+            if (horas_trabajadas <= 40) { 
+                salario = horas_trabajadas * ptas_hora; 
+            } else { 
+                double horasExtra = horas_trabajadas - 40; 
+                salario = (40 * ptas_hora) + (horasExtra * ptas_hora * FactorExtra); 
+            } 
+            System.out.println("Empleado " + contador + " - Salario: " + salario); 
+        } 
+        sc.close(); 
+    } 
+} 

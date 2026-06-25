@@ -1,0 +1,46 @@
+import java.util.Scanner; 
+public class EncuestaProductos { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+ 
+        int total = 0; 
+        int aceptaA = 0; 
+        int aceptaB = 0; 
+        int aceptaAmbos = 0; 
+        int aceptaSoloA = 0; 
+        int aceptaSoloB = 0; 
+        int aceptaNinguno = 0; 
+        System.out.print("Ingrese el número de encuestados: "); 
+        int n = sc.nextInt(); 
+        for (int i = 1; i <= n; i++) { 
+            System.out.println("Encuestado " + i + ":"); 
+            System.out.print("¿Acepta el producto A? (1 = sí, 0 = no): "); 
+            int a = sc.nextInt(); 
+            System.out.print("¿Acepta el producto B? (1 = sí, 0 = no): "); 
+            int b = sc.nextInt(); 
+            total++; 
+            if (a == 1) aceptaA++; 
+            if (b == 1) aceptaB++; 
+ 
+            if (a == 1 && b == 1) { 
+                aceptaAmbos++; 
+            } else if (a == 1 && b == 0) { 
+                aceptaSoloA++; 
+            } else if (a == 0 && b == 1) { 
+                aceptaSoloB++; 
+            } else { 
+                aceptaNinguno++; 
+            } 
+        } 
+        System.out.println("\n--- Resultados de la encuesta ---"); 
+        System.out.println("Total de encuestados: " + total); 
+        System.out.printf("Porcentaje que aceptan el producto A: %.2f%%\n", (aceptaA * 100.0 / total)); 
+        System.out.printf("Porcentaje que aceptan el producto B: %.2f%%\n", (aceptaB * 100.0 / total)); 
+        System.out.printf("Porcentaje que aceptan ambos productos: %.2f%%\n", (aceptaAmbos * 100.0 / total)); 
+        System.out.printf("Porcentaje que aceptan solo A: %.2f%%\n", (aceptaSoloA * 100.0 / total)); 
+        System.out.printf("Porcentaje que aceptan solo B: %.2f%%\n", (aceptaSoloB * 100.0 / total)); 
+        System.out.printf("Porcentaje que no aceptan ninguno: %.2f%%\n", (aceptaNinguno * 100.0 / total)); 
+ 
+        sc.close(); 
+    } 
+} 

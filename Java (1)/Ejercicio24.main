@@ -1,0 +1,64 @@
+import java.util.Scanner; 
+public class EvaluacionPostulantes { 
+    public static void main(String[] args) { 
+        final int NumPostulantes = 1000; 
+        final int Vacantes = 150; 
+        final int NotaMinima = 120; 
+        Scanner sc = new Scanner(System.in); 
+        double[] notas = new double[NumPostulantes]; 
+        int ingresantes = 0; 
+        double sumaNotas = 0; 
+// Lectura y cálculo de notas 
+        for (int i = 0; i < NumPostulantes; i++) { 
+            System.out.println("Postulante " + (i+1)); 
+            System.out.print("Respuestas correctas en razonamiento (40): "); 
+            int razonamientoCorrectas = sc.nextInt(); 
+            int razonamientoIncorrectas = 40 - razonamientoCorrectas; 
+            System.out.print("Respuestas correctas en ciencias (30): "); 
+            int cienciasCorrectas = sc.nextInt(); 
+            int cienciasIncorrectas = 30 - cienciasCorrectas; 
+            System.out.print("Respuestas correctas en letras (30): "); 
+            int letrasCorrectas = sc.nextInt(); 
+            int letrasIncorrectas = 30 - letrasCorrectas; 
+            // Calcular nota 
+            double nota = (razonamientoCorrectas * 2 - razonamientoIncorrectas * 1) 
+                        + (cienciasCorrectas * 3 - cienciasIncorrectas * 1.5) 
+                        + (letrasCorrectas * 1 - letrasIncorrectas * 0.5); 
+            notas[i] = nota; 
+            sumaNotas += nota; 
+            // Verificar ingreso 
+            if (nota >= NotaMinima) { 
+                ingresantes++; 
+                System.out.println("Nota final: " + nota + " → INGRESÓ"); 
+            } else { 
+                System.out.println("Nota final: " + nota + " → NO INGRESÓ"); 
+            } 
+        } 
+ 
+        // Media aritmética 
+        double media = sumaNotas / NumPostulantes; 
+        // Varianza 
+        double sumaVar = 0; 
+        for (int i = 0; i < NumPostulantes; i++) { 
+            sumaVar += Math.pow(notas[i] - media, 2); 
+        } 
+        double varianza = sumaVar / NumPostulantes; 
+        // Nota mínima y máxima de los ingresantes 
+        double notaMinIngresante = Double.MAX_VALUE; 
+        double notaMaxIngresante = Double.MIN_VALUE; 
+        for (int i = 0; i < NumPostulantes; i++) { 
+            if (notas[i] >= NotaMinima) { 
+                if (notas[i] < notaMinIngresante) notaMinIngresante = notas[i]; 
+                if (notas[i] > notaMaxIngresante) notaMaxIngresante = notas[i]; 
+            } 
+        } 
+        // Resultados finales 
+        System.out.println("\n--- RESULTADOS GENERALES ---"); 
+        System.out.println("Media aritmética de notas: " + media); 
+        System.out.println("Varianza de notas: " + varianza); 
+        System.out.println("Número de ingresantes: " + ingresantes); 
+        System.out.println("Nota mínima de ingresantes: " + notaMinIngresante); 
+        System.out.println("Nota máxima de ingresantes: " + notaMaxIngresante); 
+        sc.close(); 
+    } 
+} 

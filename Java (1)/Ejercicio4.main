@@ -1,0 +1,24 @@
+import java.util.Scanner; 
+public class RotacionPromedio { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese un número entero positivo: "); 
+        String numero = sc.nextLine(); 
+        int longitud = numero.length(); 
+        int suma = 0; 
+        // Calcular suma de dígitos 
+        for (int i = 0; i < longitud; i++) { 
+            suma += Character.getNumericValue(numero.charAt(i)); 
+        } 
+        int promedio = suma / longitud; 
+        // Rotar hacia la izquierda tantas veces como el promedio 
+        String resultado = numero; 
+        for (int i = 0; i < promedio; i++) { 
+            resultado = resultado.substring(1) + resultado.charAt(0); 
+        } 
+        // Salida 
+        System.out.println("Número rotado: " + resultado); 
+        sc.close(); 
+    } 
+} 

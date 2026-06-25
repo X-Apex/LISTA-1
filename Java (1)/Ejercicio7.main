@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+public class Adivinar { 
+    public static void main(String[] args) { 
+        final int MAXIMO = 100; 
+        int numero = (int)(Math.random() * MAXIMO) + 1; // número aleatorio entre 1 y 100 
+        boolean acierto = false; 
+        int intentos = 0; 
+        Scanner sc = new Scanner(System.in); 
+        while (!acierto) { 
+            System.out.print("Introduzca un número: "); 
+            int n = sc.nextInt(); 
+            intentos++; 
+            if (n == numero) { 
+                System.out.println("¡¡Acertaste!!"); 
+                acierto = true; 
+            } else if (n < numero) { 
+                System.out.println("El número es mayor"); 
+            } else { 
+                System.out.println("El número es menor"); 
+            } 
+        } 
+        System.out.println("Número de intentos: " + intentos); 
+        sc.close(); 
+    } 
+} 

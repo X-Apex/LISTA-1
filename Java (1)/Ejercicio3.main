@@ -1,0 +1,10 @@
+public class SumaMultiplos3 { 
+    public static void main(String[] args) { 
+        int suma = 0; 
+        for (int i = 1; i <= 20; i++) { 
+            int multiplo = 3 * i; 
+            suma += multiplo; 
+        } 
+        System.out.println("La suma de los 20 primeros múltiplos de 3 es: " + suma); 
+    } 
+} 

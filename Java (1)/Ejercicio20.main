@@ -1,0 +1,18 @@
+import java.util.Scanner; 
+public class NumeroTriangular { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese el valor de n: "); 
+        int n = sc.nextInt(); 
+        if (n <= 0) { 
+            System.out.println("n debe ser un número natural positivo."); 
+        } else { 
+            // Fórmula del n-ésimo número triangular: Tn = n*(n+1)/2 
+            int triangular = n * (n + 1) / 2; 
+            // Salida 
+            System.out.println("El número triangular en la posición " + n + " es: " + triangular); 
+        } 
+        sc.close(); 
+    } 
+} 

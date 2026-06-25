@@ -1,0 +1,32 @@
+import java.util.Scanner; 
+public class BinarioAHexadecimal { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese un número binario: "); 
+        String binario = sc.nextLine(); 
+        // Aseguramos que la longitud sea múltiplo de 4 (rellenando con ceros a la izquierda) 
+        int resto = binario.length() % 4; 
+        if (resto != 0) { 
+            int ceros = 4 - resto; 
+            StringBuilder sb = new StringBuilder(); 
+            for (int i = 0; i < ceros; i++) { 
+                sb.append("0"); 
+            } 
+            sb.append(binario); 
+            binario = sb.toString(); 
+        } 
+ 
+        // Proceso: dividir en bloques de 4 bits y convertir cada bloque a hexadecimal 
+        StringBuilder hexadecimal = new StringBuilder(); 
+        for (int i = 0; i < binario.length(); i += 4) { 
+            String bloque = binario.substring(i, i + 4); 
+            int valor = Integer.parseInt(bloque, 2); // convierte el bloque de 4 bits a decimal 
+            String hex = Integer.toHexString(valor).toUpperCase(); // convierte a hex 
+            hexadecimal.append(hex); 
+        } 
+        // Salida 
+        System.out.println("El número binario " + binario + " en hexadecimal es: " + hexadecimal); 
+        sc.close(); 
+    } 
+} 

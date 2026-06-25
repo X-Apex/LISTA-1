@@ -1,0 +1,22 @@
+import java.util.Scanner; 
+public class SerieFibonacci { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese el valor n: "); 
+        int n = sc.nextInt(); 
+        System.out.print("Ingrese el valor m: "); 
+        int m = sc.nextInt(); 
+        int a = 0, b = 1; 
+        System.out.println("Serie de Fibonacci entre " + n + " y " + m + ":"); 
+        while (a <= m) { 
+            if (a >= n) { 
+                System.out.print(a + " "); 
+            } 
+            int temp = a + b; 
+            a = b; 
+            b = temp; 
+        } 
+        sc.close(); 
+    } 
+} 

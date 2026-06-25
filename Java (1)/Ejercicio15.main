@@ -1,0 +1,24 @@
+import java.util.Scanner; 
+public class FibonacciN { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese el valor de N (número de términos): "); 
+        int N = sc.nextInt(); 
+        if (N <= 0) { 
+            System.out.println("N debe ser un número natural mayor que 0."); 
+        } else { 
+            int f1 = 1, f2 = 1; 
+            System.out.println("Los primeros " + N + " términos de la sucesión de Fibonacci son:"); 
+            if (N >= 1) System.out.print(f1 + " "); 
+            if (N >= 2) System.out.print(f2 + " "); 
+            for (int i = 3; i <= N; i++) { 
+                int fn = f1 + f2; 
+                System.out.print(fn + " "); 
+                f1 = f2; 
+                f2 = fn; 
+            } 
+        } 
+        sc.close(); 
+    } 
+} 

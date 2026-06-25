@@ -1,0 +1,28 @@
+import java.util.Scanner; 
+public class SumasNumeros { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese un número entero positivo: "); 
+        int numero = sc.nextInt(); 
+        int sumaPares = 0; 
+        int sumaImpares = 0; 
+        int sumaMultiplos5 = 0; 
+        // Proceso 
+        for (int i = 1; i <= numero; i++) { 
+            if (i % 2 == 0) { 
+                sumaPares += i; 
+            } else { 
+                sumaImpares += i; 
+            } 
+            if (i % 5 == 0) { 
+                sumaMultiplos5 += i; 
+            } 
+        } 
+        // Salida 
+        System.out.println("Suma de pares: " + sumaPares); 
+        System.out.println("Suma de impares: " + sumaImpares); 
+        System.out.println("Suma de múltiplos de 5: " + sumaMultiplos5); 
+        sc.close(); 
+    } 
+} 

@@ -1,0 +1,24 @@
+import java.util.Scanner; 
+public class CajeroAutomatico { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese la cantidad de dinero en euros: "); 
+        int cantidad = sc.nextInt(); 
+        // Cálculo de billetes 
+        int billetes20 = cantidad / 20; 
+        cantidad = cantidad % 20; 
+        int billetes10 = cantidad / 10; 
+        cantidad = cantidad % 10; 
+        int billetes5 = cantidad / 5; 
+        cantidad = cantidad % 5; 
+        int billetes1 = cantidad; // lo que queda son billetes de 1 
+        // Salida 
+        System.out.println("Desglose óptimo de billetes:"); 
+        System.out.println("Billetes de 20: " + billetes20); 
+        System.out.println("Billetes de 10: " + billetes10); 
+        System.out.println("Billetes de 5 : " + billetes5); 
+        System.out.println("Billetes de 1 : " + billetes1); 
+        sc.close(); 
+    } 
+} 

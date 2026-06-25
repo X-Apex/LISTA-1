@@ -1,0 +1,25 @@
+import java.util.Scanner; 
+public class SenoAproximado { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        // Entrada 
+        System.out.print("Ingrese un ángulo en grados (0 - 180): "); 
+        double angulo = sc.nextDouble(); 
+ 
+        if (angulo < 0 || angulo > 180) { 
+            System.out.println("El ángulo está fuera de los límites permitidos."); 
+        } else { 
+            // Convertir a radianes 
+            double radianes = angulo * Math.PI / 180; 
+            // Aproximación con serie de Taylor 
+            double termino1 = radianes; 
+            double termino2 = Math.pow(radianes, 3) / 6; 
+            double termino3 = Math.pow(radianes, 5) / 120; 
+            double termino4 = Math.pow(radianes, 7) / 5040; 
+            double seno = termino1 - termino2 + termino3 - termino4; 
+            // Salida 
+            System.out.println("El seno aproximado de " + angulo + " grados es: " + seno); 
+        } 
+        sc.close(); 
+    } 
+} 

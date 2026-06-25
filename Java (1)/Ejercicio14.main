@@ -1,0 +1,30 @@
+import java.util.Scanner; 
+public class SecuenciaNumeros { 
+    public static void main(String[] args) { 
+        Scanner sc = new Scanner(System.in); 
+        int numero; 
+        int menor = Integer.MAX_VALUE; 
+        int mayor = Integer.MIN_VALUE; 
+        int suma = 0; 
+        int contador = 0; 
+        System.out.println("Ingrese números positivos (termine con 0):"); 
+        do { 
+            numero = sc.nextInt(); 
+            if (numero > 0) { 
+                if (numero < menor) menor = numero; 
+                if (numero > mayor) mayor = numero; 
+                suma += numero; 
+                contador++; 
+            } 
+        } while (numero != 0); 
+        if (contador > 0) { 
+            double promedio = (double) suma / contador; 
+            System.out.println("Menor número: " + menor); 
+            System.out.println("Mayor número: " + mayor); 
+            System.out.println("Promedio: " + promedio); 
+        } else { 
+            System.out.println("No se ingresaron números válidos."); 
+        } 
+        sc.close(); 
+    } 
+} 
